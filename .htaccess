@@ -1,0 +1,7 @@
+Options -Indexes
+DirectoryIndex dist/index.html
+
+RewriteEngine On
+RewriteRule ^api/(sales|products)$ api.php?r=$1 [QSA,L]
+RewriteRule ^(|api\.php|dist/.*)$ - [L]
+RewriteRule ^(.*)$ dist/$1 [L]

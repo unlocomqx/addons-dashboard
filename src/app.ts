@@ -97,8 +97,8 @@ async function load(force = false) {
   try {
     const q = force ? "?refresh=1" : "";
     const [sales, products] = await Promise.all([
-      getJson<SalesResponse>(`/api/sales${q}`),
-      getJson<ProductNames>(`/api/products${q}`),
+      getJson<SalesResponse>(`api/sales${q}`),
+      getJson<ProductNames>(`api/products${q}`),
     ]);
     state.data = prepare(sales.rows, products);
     state.fetchedAt = sales.fetchedAt;

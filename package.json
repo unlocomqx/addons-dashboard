@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "bun --hot src/server.ts",
     "start": "NODE_ENV=production bun src/server.ts",
-    "typecheck": "bunx tsc --noEmit"
+    "typecheck": "bunx tsc --noEmit",
+    "build": "bun build src/index.html --outdir dist --minify"
   },
   "devDependencies": {
     "@types/bun": "latest",

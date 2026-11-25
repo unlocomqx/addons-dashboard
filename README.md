@@ -2,14 +2,25 @@
 
 Local dashboard for PrestaShop Addons seller sales (orders, KPIs).
 
-## Run
+Needs `API_KEY` (Addons seller API key) in `.env`.
+
+## Run with Apache + PHP (no server process)
 
 ```sh
 bun install
+bun run build
+```
+
+Place the repo under the Apache document root (with `AllowOverride All`, mod_rewrite, PHP + curl) and open it, e.g. http://localhost/prestashop/dashboard/.
+
+- `.htaccess` serves `dist/` and blocks everything else (`.env`, `src/`, `cache/`).
+- `api.php` proxies the Addons API, cached 15 min in `cache/` (`?refresh=1` forces reload).
+- Run `bun run build` again after editing `src/`.
+
+## Run with Bun
+
+```sh
 bun run dev
 ```
 
-Open http://localhost:3000. Needs `API_KEY` (Addons seller API key) in `.env`.
-
-- `/api/sales` – full order history from 2015, cached 15 min (`?refresh=1` forces reload)
-- `/api/products` – product names, cached 15 min
+Open http://localhost:3000.
