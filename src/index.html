@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Addons sales</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Addons sales</h1>
+      <div class="filters">
+        <div class="presets" role="radiogroup" aria-label="Date range">
+          <button type="button" role="radio" data-preset="7d">7d</button>
+          <button type="button" role="radio" data-preset="30d">30d</button>
+          <button type="button" role="radio" data-preset="90d">90d</button>
+          <button type="button" role="radio" data-preset="ytd">YTD</button>
+          <button type="button" role="radio" data-preset="12m">12m</button>
+          <button type="button" role="radio" data-preset="all">All</button>
+          <button type="button" role="radio" data-preset="custom">Custom</button>
+        </div>
+        <div class="custom" id="custom" hidden>
+          <input type="date" id="from" aria-label="From" />
+          <span class="muted">–</span>
+          <input type="date" id="to" aria-label="To" />
+        </div>
+      </div>
+      <div class="meta">
+        <span id="status" class="muted"></span>
+        <button type="button" id="refresh" class="btn">Refresh</button>
+      </div>
+    </header>
+
+    <main id="root" class="viz-root">
+      <p id="error" class="error" hidden></p>
+      <p class="range-caption" id="range-caption"></p>
+      <section class="tiles" id="tiles" aria-label="Key figures"></section>
+
+      <section class="card" id="card-time">
+        <header class="card-head">
+          <div>
+            <h2>Revenue over time</h2>
+            <p class="sub" id="time-sub"></p>
+          </div>
+          <button type="button" class="btn ghost" data-toggle="time">Table</button>
+        </header>
+        <div id="time-legend"></div>
+        <div class="plot" id="time-plot"></div>
+      </section>
+
+      <div class="grid2">
+        <section class="card" id="card-product">
+          <header class="card-head">
+            <div>
+              <h2>Revenue by product</h2>
+              <p class="sub">Net, top 8 and other</p>
+            </div>
+            <button type="button" class="btn ghost" data-toggle="product">Table</button>
+          </header>
+          <div class="plot" id="product-plot"></div>
+        </section>
+        <section class="card" id="card-country">
+          <header class="card-head">
+            <div>
+              <h2>Revenue by country</h2>
+              <p class="sub">Net, top 10</p>
+            </div>
+            <button type="button" class="btn ghost" data-toggle="country">Table</button>
+          </header>
+          <div class="plot" id="country-plot"></div>
+        </section>
+      </div>
+
+      <section class="card" id="card-orders">
+        <header class="card-head">
+          <div>
+            <h2>Orders</h2>
+            <p class="sub" id="orders-sub"></p>
+          </div>
+          <input type="search" id="search" placeholder="Search product, order, country, discount" aria-label="Search orders" />
+        </header>
+        <div class="table-wrap" id="orders-table"></div>
+        <footer class="pager">
+          <span id="pager-info" class="muted"></span>
+          <div>
+            <button type="button" class="btn ghost" id="prev">Previous</button>
+            <button type="button" class="btn ghost" id="next">Next</button>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <div id="tooltip" role="tooltip" hidden></div>
+    <script type="module" src="./app.ts"></script>
+  </body>
+</html>
