@@ -2,7 +2,11 @@
 
 Local dashboard for PrestaShop Addons seller sales (orders, KPIs).
 
-Needs `API_KEY` (Addons seller API key) in `.env`.
+Needs `API_KEY` (Addons seller API key) in `.env` (copy `.env.example`).
+
+## Prebuilt install
+
+Download `addons-dashboard.zip` from [Releases](https://github.com/unlocomqx/addons-dashboard/releases/latest), unzip it under your Apache document root, copy `.env.example` to `.env` and set `API_KEY`. No build needed.
 
 ## Run with Apache + PHP (no server process)
 

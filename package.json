@@ -6,10 +6,12 @@
     "dev": "bun --hot src/server.ts",
     "start": "NODE_ENV=production bun src/server.ts",
     "typecheck": "bunx tsc --noEmit",
-    "build": "bun build src/index.html --outdir dist --minify"
+    "build": "bun build src/index.html --outdir dist --minify",
+    "package": "bun run build && rm -rf release && mkdir -p release/addons-dashboard && cp -R dist api.php .htaccess .env.example README.md release/addons-dashboard/ && cd release && zip -qr addons-dashboard.zip addons-dashboard"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "typescript": "^5.6.0"
-  }
+  },
+  "version": "1.0.0"
 }
