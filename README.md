@@ -28,3 +28,13 @@ bun run dev
 ```
 
 Open http://localhost:3000.
+
+## Releasing
+
+Bump `version` in `package.json`, commit, then push a tag:
+
+```sh
+git tag v1.1.0 && git push origin v1.1.0
+```
+
+GitHub Actions builds `addons-dashboard.zip` and publishes the release.
